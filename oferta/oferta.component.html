@@ -1,0 +1,49 @@
+
+<div class="admin-container">
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <ul>
+        <li><a routerLink="/Routeroferta">Agregar oferta</a></li>
+        <li><a routerLink="/Routergestionar">Gestionar oferta</a></li>
+        <li><a routerLink="/Routeradmin">Usuarios</a></li>
+      </ul>
+    </div>
+  
+    <!-- Content -->
+    <div class="content">
+      <!-- Dashboard con botón de Cerrar sesión en la esquina superior derecha -->
+      <div class="dashboard">
+        <button class="logout-button" (click)="logout()">Cerrar sesión</button>
+        <h2>Dashboard</h2>
+        <p>Bienvenido al panel de administración. Aquí puedes gestionar usuarios y ver estadísticas.</p>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <h3>Registro de Oferta de Trabajo</h3>
+        </div>
+        <div class="card-body">
+          <form id="form" (ngSubmit)="register()" #registerForm="ngForm">
+            <!-- form inputs -->
+            <fieldset>
+              <label for="titulo">Título de la oferta:</label>
+              <input type="text" id="titulo" name="titulo" [(ngModel)]="titulo" tabindex="1" required />
+            </fieldset>
+            <fieldset>
+              <label for="descripcion">Descripción de la oferta:</label>
+              <textarea id="descripcion" name="descripcion" [(ngModel)]="descripcion" required></textarea>
+            </fieldset>
+            <fieldset>
+              <label for="empresa">Empresa:</label>
+              <input type="text" id="empresa" name="empresa" [(ngModel)]="empresa" required />
+            </fieldset>
+            <fieldset>
+              <label for="fechaPublicacion">Fecha de Publicación:</label>
+              <input type="date" id="fechaPublicacion" name="fechaPublicacion" [(ngModel)]="fechaPublicacion" required />
+            </fieldset>
+            <fieldset>
+              <button type="submit" id="submit" [disabled]="!registerForm.valid">Registrarse</button>
+            </fieldset>
+          </form>
+        </div>
+      </div>

@@ -1,0 +1,48 @@
+
+<!-- src/app/admin/admin.component.html -->
+
+<div class="admin-container">
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <ul>
+      <li><a routerLink="/Routeroferta">Agregar oferta</a></li>
+      <li><a routerLink="Routergestionar">Gestionar oferta</a></li>
+      <li><a routerLink="/Routeradmin">Usuarios</a></li>
+    </ul>
+  </div>
+
+  <!-- Content -->
+  <div class="content">
+    <!-- Dashboard con botón de Cerrar sesión en la esquina superior derecha -->
+    <div class="dashboard">
+      <button class="logout-button" (click)="logout()">Cerrar sesión</button>
+      <img src="assets/logo.jpg" alt="Dashboard Image" class="dashboard-image" />
+      <p>Crea ofertas Laborales</p>
+    </div>
+
+    <!-- Panel de Administrador - Usuarios Registrados -->
+    <h2>Panel de Administrador - Usuarios Registrados</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Usuario</th>
+          <th>Email</th>
+          <th>Contraseña</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of users; let i = index">
+          <td>{{ user.username }}</td>
+          <td>{{ user.email }}</td>
+          <td>{{ user.password }}</td>
+          <td>
+            <button (click)="deleteUser(i)">Eliminar</button>
+            <button (click)="updateUser(i)">Actualizar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+

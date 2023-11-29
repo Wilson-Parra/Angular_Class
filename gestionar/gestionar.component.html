@@ -1,0 +1,49 @@
+<!-- src/app/gestionar/gestionar.component.html -->
+
+<div class="admin-container">
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <ul>
+        <li><a routerLink="/Routeroferta">Agregar oferta</a></li>
+        <li><a routerLink="/Routergestionar">Gestionar ofertas</a></li>
+        <li><a routerLink="/Routeradmin">Usuarios</a></li>
+      </ul>
+    </div>
+  
+    <!-- Content -->
+    <div class="content">
+      <!-- Dashboard con botón de Cerrar sesión en la esquina superior derecha -->
+      <div class="dashboard">
+        <button class="logout-button" (click)="logout()">Cerrar sesión</button>
+        <h2>Dashboard</h2>
+        <p>Bienvenido al panel de administración. Aquí puedes gestionar ofertas, usuarios y ver estadísticas.</p>
+      </div>
+  
+      <!-- Panel de Administrador - Ofertas de Trabajo -->
+      <h2>Panel de Administrador - Ofertas de Trabajo</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Título</th>
+            <th>Descripción</th>
+            <th>Empresa</th>
+            <th>Fecha de Publicación</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let oferta of ofertas; let i = index">
+            <td>{{ oferta.titulo }}</td>
+            <td>{{ oferta.descripcion }}</td>
+            <td>{{ oferta.empresa }}</td>
+            <td>{{ oferta.fechaPublicacion }}</td>
+            <td>
+                <button (click)="deleteOffer(i)">Eliminar</button>
+              <button (click)="updateOffer(i)">Actualizar</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  
